@@ -10,6 +10,8 @@ class Attendance(StrEnum):
     WEDDING_CEREMONY = "Wedding Ceremony (13 December 2026)"
     RECEPTION_DINNER = "Reception & Dinner (14 December 2026)"
     BOTH_EVENTS = "Both Events"
+    JOYFULLY_ATTENDING = "Joyfully Attending"
+    ATTENDING_WITH_FAMILY = "Attending with Family"
     UNABLE_TO_ATTEND = "Unable to Attend"
 
 

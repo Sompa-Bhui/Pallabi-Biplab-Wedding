@@ -105,6 +105,8 @@ def test_all_finalized_attendance_options_are_accepted(client):
         "Wedding Ceremony (13 December 2026)",
         "Reception & Dinner (14 December 2026)",
         "Both Events",
+        "Joyfully Attending",
+        "Attending with Family",
         "Unable to Attend",
     )
     for attendance in options:
@@ -113,6 +115,20 @@ def test_all_finalized_attendance_options_are_accepted(client):
             json={**VALID_PAYLOAD, "attendance": attendance},
         )
         assert response.status_code == 201
+
+
+def test_new_attendance_options_are_stored_unchanged(client, session_factory: sessionmaker):
+    options = ("Joyfully Attending", "Attending with Family", "Unable to Attend")
+    for attendance in options:
+        name = f"Guest {attendance}"
+        response = client.post(
+            "/api/rsvp",
+            json={**VALID_PAYLOAD, "name": name, "attendance": attendance},
+        )
+        assert response.status_code == 201
+        with session_factory() as session:
+            rsvp = session.scalar(select(RSVP).where(RSVP.guest_name == name))
+            assert rsvp.attendance == attendance
 
 
 def test_optional_mobile_and_message(client):

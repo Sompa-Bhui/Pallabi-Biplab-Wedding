@@ -131,6 +131,8 @@ in the repository. No deployment is performed by these instructions.
 - `Wedding Ceremony (13 December 2026)`
 - `Reception & Dinner (14 December 2026)`
 - `Both Events`
+- `Joyfully Attending`
+- `Attending with Family`
 - `Unable to Attend`
 
 The optional `Idempotency-Key` header deduplicates API retries. Reusing the key

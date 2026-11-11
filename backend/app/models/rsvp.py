@@ -15,7 +15,8 @@ class RSVP(Base):
             "attendance IN ("
             "'Wedding Ceremony (13 December 2026)', "
             "'Reception & Dinner (14 December 2026)', "
-            "'Both Events', 'Unable to Attend')",
+            "'Both Events', 'Joyfully Attending', "
+            "'Attending with Family', 'Unable to Attend')",
             name="ck_rsvps_attendance",
         ),
     )
